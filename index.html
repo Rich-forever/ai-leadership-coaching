@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leadership & Coaching in the Age of AI</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Language Selection Page Styles */
+    .language-page {
+      min-height: 100vh;
+      font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .language-container {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .language-card {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo svg {
+      width: 40px;
+      height: 40px;
+      fill: white;
+    }
+
+    .language-card h1 {
+      font-size: 2.2rem;
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
+
+    .language-card .subtitle {
+      font-size: 1.1rem;
+      color: #718096;
+      margin-bottom: 2.5rem;
+    }
+
+    .language-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .language-option {
+      display: flex;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      background: #f7fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .language-option:hover {
+      border-color: #667eea;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.1);
+    }
+
+    .language-option.selected {
+      border-color: #667eea;
+      background: rgba(102, 126, 234, 0.05);
+    }
+
+    .language-flag {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin-right: 1rem;
+      flex-shrink: 0;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .flag-en { background-color: #1d4ed8; }
+    .flag-fr { background: linear-gradient(90deg, #002395 33%, #fff 33%, #fff 66%, #ed2939 66%); }
+    .flag-ko { background: linear-gradient(135deg, #fff 40%, #cd2e3a 40%, #cd2e3a 60%, #0047a0 60%); }
+
+    .language-info {
+      flex: 1;
+      text-align: left;
+    }
+
+    .language-name {
+      font-weight: 600;
+      color: #2d3748;
+      margin-bottom: 0.25rem;
+    }
+
+    .language-native {
+      font-size: 0.9rem;
+      color: #718096;
+    }
+
+    .continue-btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .continue-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .continue-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Hide main survey initially */
+    .survey-main {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Language Selection Page -->
+  <div class="language-page" id="languagePage">
+    <div class="language-container">
+      <div class="language-card">
+        <div class="logo">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        
+        <h1>Choose Your Language</h1>
+        <p class="subtitle">Select your preferred language to begin the survey</p>
+        
+        <div class="language-options">
+          <div class="language-option" data-lang="en">
+            <div class="language-flag flag-en"></div>
+            <div class="language-info">
+              <div class="language-name">English</div>
+              <div class="language-native">English</div>
+            </div>
+          </div>
+          
+          <div class="language-option" data-lang="fr">
+            <div class="language-flag flag-fr"></div>
+            <div class="language-info">
+              <div class="language-name">Français</div>
+              <div class="language-native">French</div>
+            </div>
+          </div>
+          
+          <div class="language-option" data-lang="ko">
+            <div class="language-flag flag-ko"></div>
+            <div class="language-info">
+              <div class="language-name">한국어</div>
+              <div class="language-native">Korean</div>
+            </div>
+          </div>
+        </div>
+        
+        <button class="continue-btn" id="continueBtn" disabled>Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Survey Content -->
+  <div class="survey-main" id="surveyMain">
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <h1>Leadership & Coaching in the Age of AI</h1>
+          <p class="subtitle">Please take a few minutes to fill out this survey. Your input is valuable for academic research!</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Progress Indicator -->
+      <div class="step-indicator">
+        <div class="step active">
+          <div class="step-number">1</div>
+          <div class="step-label">Introduction</div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-label">Demographics</div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-label">Knowledge Check</div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-label">Familiarity</div>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-label">Beliefs</div>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <div class="step-label">Scenarios</div>
+        </div>
+        <div class="step">
+          <div class="step-number">7</div>
+          <div class="step-label">Study Experience</div>
+        </div>
+        <div class="step">
+          <div class="step-number">8</div>
+          <div class="step-label">Completion</div>
+        </div>
+      </div>
+      
+      <!-- Introduction Section with Consent -->
+      <section id="introSection" class="card">
+        <h2>Research Study Introduction</h2>
+        <p>Welcome and thank you for your interest in participating in this research study on Leadership and Coaching in the Age of AI.</p>
+        
+        <div class="highlight">
+          <p><strong>About the Researcher:</strong> My name is <strong>Felix Kwitonda</strong>, and I am a Master's student in Leadership and Coaching at the Seoul-International-University. This experiment is part of my Master's thesis, supervised by <strong>Professor Dr. Paul Roh</strong>.</p>
+        </div>
+        
+        <p>You will be asked to read a few short texts and answer questions about them. The entire process should take no more than <strong>10 minutes</strong> to complete. By completing the tasks, you will also have the opportunity to earn money "15$".</p>
+        
+        <p>Participation is entirely voluntary, and you may exit the study at any time without providing a reason. All responses will be treated confidentially and used solely for academic research purposes.</p>
+        
+        <p>If you have any questions or concerns, please contact me at <a href="mailto:kwitondafelix6@gmail.com">kwitondafelix6@gmail.com</a>.</p>
+        
+        <p>Thank you for supporting academic research!</p>
+        
+        <div class="consent-section">
+          <p><strong>Consent Agreement:</strong> By participating, you agree to allow us to use your data for research. You can leave the study at any time without penalty.</p>
+          
+          <div class="checkbox-container">
+            <input type="checkbox" id="consentCheckbox">
+            <label for="consentCheckbox">I confirm that I have read and understood the information provided above and consent to participate in this research study.</label>
+          </div>
+          
+          <button id="nextBtn" class="btn btn-primary" disabled>Continue to Survey</button>
+        </div>
+      </section>
+
+      <!-- Demographics Section -->
+      <section id="demographicsSection" class="card" style="display:none;">
+        <h2>Demographic Information</h2>
+        <p>Please provide some basic information about yourself to help us understand our participant demographics.</p>
+        
+        <form id="demographicsForm">
+          <div class="form-group">
+            <label for="age">1. Enter your age:</label>
+            <input type="number" id="age" name="age" min="18" max="100" placeholder="Enter your age" required>
+          </div>
+          
+          <div class="form-group">
+            <label>2. What is your gender?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="gender" value="male" required>
+                <span class="radio-custom"></span>
+                Male
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="gender" value="female">
+                <span class="radio-custom"></span>
+                Female
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="gender" value="other">
+                <span class="radio-custom"></span>
+                Prefer not to say/Other
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="education">3. What is your highest level of education?</label>
+            <select id="education" name="education" required>
+              <option value="" disabled selected>Select your education level</option>
+              <option value="high-school">High School</option>
+              <option value="associate">Associate Degree</option>
+              <option value="bachelor">Bachelor's Degree</option>
+              <option value="master">Master's Degree</option>
+              <option value="doctorate">Doctorate or higher</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="english-level">4. What is your English level?</label>
+            <select id="english-level" name="english-level" required>
+              <option value="" disabled selected>Select your English Level</option>
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+              <option value="native">Native</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="ai-familiarity">5. How familiar are you with the use of Artificial Intelligence (AI)?</label>
+            <select id="ai-familiarity" name="ai-familiarity" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="very-familiar">Very familiar</option>
+              <option value="somewhat-familiar">Somewhat familiar</option>
+              <option value="not-familiar">Not familiar at all</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="leadership-role">6. Do you currently hold a leadership or coaching role?</label>
+            <select id="leadership-role" name="leadership-role" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="yes-current">Yes, currently</option>
+              <option value="yes-past">Yes, in the past</option>
+              <option value="no">No, never</option>
+              <option value="aspiring">No, but aspiring to</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="ai-decision">7. Do you believe AI can help leaders make better decisions?</label>
+            <select id="ai-decision" name="ai-decision" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="yes">Yes</option>
+              <option value="maybe">Maybe</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          
+          <div class="button-group">
+            <button type="button" id="backToIntro" class="btn btn-secondary">Back</button>
+            <button type="button" id="nextToKnowledge" class="btn btn-primary">Next</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Knowledge Check Section -->
+      <section id="knowledgeSection" class="card" style="display:none;">
+        <h2>Leadership & AI Knowledge Check</h2>
+        <p>Please answer the following questions to help us understand your baseline knowledge.</p>
+        
+        <form id="knowledgeForm">
+          <div class="form-group">
+            <label>1. How comfortable would you feel being coached or mentored by an AI-assisted system?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="ai-coaching-comfort" value="very-comfortable" required>
+                <span class="radio-custom"></span>
+                Very comfortable
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="ai-coaching-comfort" value="somewhat-comfortable">
+                <span class="radio-custom"></span>
+                Somewhat comfortable
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="ai-coaching-comfort" value="not-comfortable">
+                <span class="radio-custom"></span>
+                Not comfortable
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>2. What is the biggest challenge leaders face today when guiding their teams?</label>
+            <div class="checkbox-group">
+              <label class="checkbox-option">
+                <input type="checkbox" name="leadership-challenges" value="communication">
+                <span class="checkbox-custom"></span>
+                Communication and empathy
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="leadership-challenges" value="time-management">
+                <span class="checkbox-custom"></span>
+                Time management
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="leadership-challenges" value="data-decisions">
+                <span class="checkbox-custom"></span>
+                Data driven decision making
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="leadership-challenges" value="rapid-change">
+                <span class="checkbox-custom"></span>
+                Keeping up with rapid change
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="leadership-challenges" value="others">
+                <span class="checkbox-custom"></span>
+                Others (please specify)
+                <textarea id="ai-risks" name="ai-risks" placeholder="Please share your reason " ></textarea>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>3. In your opinion, what limits human coaches the most?</label>
+            <div class="checkbox-group">
+              <label class="checkbox-option">
+                <input type="checkbox" name="coach-limitations" value="data-insights">
+                <span class="checkbox-custom"></span>
+                Lack of data insights
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="coach-limitations" value="limited-availability">
+                <span class="checkbox-custom"></span>
+                Limited availability
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="coach-limitations" value="emotional-bias">
+                <span class="checkbox-custom"></span>
+                Emotional bias
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="coach-limitations" value="cost-accessibility">
+                <span class="checkbox-custom"></span>
+                Cost or accessibility
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>4. Do you think technology can support human empathy and emotional intelligence, or replace it?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="tech-empathy" value="support" required>
+                <span class="radio-custom"></span>
+                Support
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="tech-empathy" value="replace">
+                <span class="radio-custom"></span>
+                Replace
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="tech-empathy" value="not-sure">
+                <span class="radio-custom"></span>
+                Not Sure
+              </label>
+            </div>
+          </div>
+         
+          <div class="form-group">
+            <label>5. What would make you trust an AI tool in leadership or coaching contexts?</label>
+            <div class="checkbox-group">
+              <label class="checkbox-option">
+                <input type="checkbox" name="ai-trust-factors" value="transparency">
+                <span class="checkbox-custom"></span>
+                Transparency
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="ai-trust-factors" value="human-oversight">
+                <span class="checkbox-custom"></span>
+                Human oversight
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="ai-trust-factors" value="proven-success">
+                <span class="checkbox-custom"></span>
+                Proven Success Story
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="ai-trust-factors" value="ethical-guidelines">
+                <span class="checkbox-custom"></span>
+                Ethical guidelines
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>6. Would you be interested in testing an AI-powered tool that supports leadership or coaching decisions?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="ai-testing-interest" value="definitely" required>
+                <span class="radio-custom"></span>
+                Definitely
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="ai-testing-interest" value="maybe">
+                <span class="radio-custom"></span>
+                Maybe
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="ai-testing-interest" value="not-interested">
+                <span class="radio-custom"></span>
+                Not Interested
+              </label>
+            </div>
+          </div>
+          
+          <div class="button-group">
+            <button type="button" id="backToDemographics" class="btn btn-secondary">Back</button>
+            <button type="button" id="nextToFamiliarity" class="btn btn-primary">Next</button>
+          </div>
+        </form>
+      </section>
+
+<!-- Familiarity Section -->
+<section id="familiaritySection" class="card" style="display:none;">
+  <h2>Familiarity with AI and Technology</h2>
+  <p>Please indicate your level of familiarity with the following concepts and technologies.</p>
+  
+  <form id="familiarityForm">
+    <div class="likert-scale">
+      <div class="likert-header">
+        <span></span>
+        <span>Not at all familiar<br><span style="font-size:0.9em;color:#888;">1</span></span>
+        <span>Slightly familiar<br><span style="font-size:0.9em;color:#888;">2</span></span>
+        <span>Moderately familiar<br><span style="font-size:0.9em;color:#888;">3</span></span>
+        <span>Very familiar<br><span style="font-size:0.9em;color:#888;">4</span></span>
+        <span>Extremely familiar<br><span style="font-size:0.9em;color:#888;">5</span></span>
+      </div>
+      
+      <div class="likert-item">
+        <label>I am familiar with the use of Artificial Intelligence (e.g., ChatGPT, Claude)</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="ai-familiarity-scale" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-familiarity-scale" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-familiarity-scale" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-familiarity-scale" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-familiarity-scale" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>I am familiar with leadership development tools and methodologies</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="leadership-tools-scale" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="leadership-tools-scale" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="leadership-tools-scale" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="leadership-tools-scale" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="leadership-tools-scale" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>I am familiar with coaching techniques and frameworks</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="coaching-techniques-scale" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="coaching-techniques-scale" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="coaching-techniques-scale" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="coaching-techniques-scale" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="coaching-techniques-scale" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>I enjoy exploring new technologies, even if it takes time to learn them</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="tech-exploration-scale" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tech-exploration-scale" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tech-exploration-scale" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tech-exploration-scale" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tech-exploration-scale" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>I usually prefer quick summaries over reading detailed explanations</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="prefer-summaries-scale" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="prefer-summaries-scale" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="prefer-summaries-scale" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="prefer-summaries-scale" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="prefer-summaries-scale" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="button-group">
+      <button type="button" id="backToKnowledge" class="btn btn-secondary">Back</button>
+      <button type="button" id="nextToBeliefs" class="btn btn-primary">Next</button>
+    </div>
+  </form>
+</section>
+
+<!-- Beliefs Section -->
+<section id="beliefsSection" class="card" style="display:none;">
+  <h2>Beliefs About AI in Leadership & Coaching</h2>
+  <p>Please share your perspectives on the role of AI in leadership and coaching contexts.</p>
+  
+  <form id="beliefsForm">
+    <div class="likert-scale">
+      <div class="likert-header">
+        <span></span>
+        <span>Strongly Disagree<br><span style="font-size:0.9em;color:#888;">1</span></span>
+        <span>Disagree<br><span style="font-size:0.9em;color:#888;">2</span></span>
+        <span>Neutral<br><span style="font-size:0.9em;color:#888;">3</span></span>
+        <span>Agree<br><span style="font-size:0.9em;color:#888;">4</span></span>
+        <span>Strongly Agree<br><span style="font-size:0.9em;color:#888;">5</span></span>
+      </div>
+      
+      <div class="likert-item">
+        <label>AI can effectively develop emotional intelligence in leaders</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="ai-emotional-intelligence" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-emotional-intelligence" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-emotional-intelligence" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-emotional-intelligence" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-emotional-intelligence" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>I believe AI coaching tools can provide personalized development plans</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="ai-personalized-plans" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-personalized-plans" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-personalized-plans" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-personalized-plans" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-personalized-plans" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>AI can show leaders the areas they may be missing or not noticing</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="ai-blind-spots" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-blind-spots" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-blind-spots" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-blind-spots" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-blind-spots" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>Human connection is essential for effective coaching</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="human-connection" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="human-connection" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="human-connection" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="human-connection" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="human-connection" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>I worry about whether using AI for leadership development is right or wrong</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="ethical-concerns" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ethical-concerns" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ethical-concerns" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ethical-concerns" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ethical-concerns" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="ai-benefits">What do you see as the biggest potential benefit of AI in leadership and coaching?</label>
+      <textarea id="ai-benefits" name="ai-benefits" placeholder="Please share your thoughts..." required></textarea>
+    </div>
+    
+    <div class="form-group">
+      <label for="ai-risks">What concerns or risks do you associate with AI in leadership and coaching?</label>
+      <textarea id="ai-risks" name="ai-risks" placeholder="Please share your concerns..." required></textarea>
+    </div>
+    
+    <div class="button-group">
+      <button type="button" id="backToFamiliarity" class="btn btn-secondary">Back</button>
+      <button type="button" id="nextToScenarios" class="btn btn-primary">Next</button>
+    </div>
+  </form>
+</section>
+
+      <!-- Scenarios Section -->
+      <section id="scenariosSection" class="card" style="display:none;">
+        <h2>AI Leadership Scenarios</h2>
+        <p>Please read the following scenarios and answer the questions based on your perspective.</p>
+        
+        <div class="scenario-container">
+          <div class="scenario">
+            <h3>Scenario 1: AI-Generated Leadership Feedback</h3>
+            <div class="scenario-content">
+              <p><strong>AI AUTHOR</strong></p>
+              <p>Effective leadership in the digital age requires balancing data-driven insights with human intuition. AI tools can analyze communication patterns, decision-making timelines, and team feedback to identify leadership blind spots that might otherwise go unnoticed.</p>
+              <p>For instance, an AI system might detect that a leader consistently interrupts team members during brainstorming sessions, potentially stifling innovation. Or it could identify patterns where critical decisions are delayed due to analysis paralysis.</p>
+              <p>The most valuable application of AI in leadership development lies in its ability to provide objective, consistent feedback that human observers might hesitate to deliver due to social dynamics or personal relationships.</p>
+            </div>
+            
+            <div class="scenario-questions">
+              <div class="form-group">
+                <label>Who do you think is the author of this text?</label>
+                <div class="radio-group">
+                  <label class="radio-option">
+                    <input type="radio" name="scenario1-author" value="ai" required>
+                    <span class="radio-custom"></span>
+                    AI
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="scenario1-author" value="human">
+                    <span class="radio-custom"></span>
+                    Human
+                  </label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>How would you rate the accuracy of this text? (precision, correctness, truthfulness)</label>
+                <div class="scale-group">
+                  <span>Very low</span>
+                  <input type="range" min="1" max="10" value="5" class="slider" name="scenario1-accuracy">
+                  <span>Very high</span>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>How would you rate the readability of this text? (clarity, ease of understanding, tone, style)</label>
+                <div class="scale-group">
+                  <span>Very low</span>
+                  <input type="range" min="1" max="10" value="5" class="slider" name="scenario1-readability">
+                  <span>Very high</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="scenario">
+            <h3>Scenario 2: Human Coaching Perspective</h3>
+            <div class="scenario-content">
+              <p><strong>UNKNOWN AUTHOR</strong></p>
+              <p>Look, here's the truth about leadership development that nobody wants to admit: you can't algorithm your way to becoming a better leader. Real growth happens in messy, uncomfortable conversations where someone calls you on your BS.</p>
+              <p>I've seen executives with perfect 360-degree feedback scores who couldn't inspire their teams to save their lives. Meanwhile, the most effective leaders I've coached often had rocky starts but showed genuine curiosity about their people.</p>
+              <p>The magic happens when a coach holds up a mirror and says, "This is how you're showing up, and here's why it's not working." No AI can replicate that moment of human connection and accountability.</p>
+            </div>
+            
+            <div class="scenario-questions">
+              <div class="form-group">
+                <label>Who do you think is the author of this text?</label>
+                <div class="radio-group">
+                  <label class="radio-option">
+                    <input type="radio" name="scenario2-author" value="ai" required>
+                    <span class="radio-custom"></span>
+                    AI
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="scenario2-author" value="human">
+                    <span class="radio-custom"></span>
+                    Human
+                  </label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>How would you rate the accuracy of this text? (precision, correctness, truthfulness)</label>
+                <div class="scale-group">
+                  <span>Very low</span>
+                  <input type="range" min="1" max="10" value="5" class="slider" name="scenario2-accuracy">
+                  <span>Very high</span>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>How would you rate the readability of this text? (clarity, ease of understanding, tone, style)</label>
+                <div class="scale-group">
+                  <span>Very low</span>
+                  <input type="range" min="1" max="10" value="5" class="slider" name="scenario2-readability">
+                  <span>Very high</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="button-group">
+          <button type="button" id="backToBeliefs" class="btn btn-secondary">Back</button>
+          <button type="button" id="nextToExperience" class="btn btn-primary">Next</button>
+        </div>
+      </section>
+
+      <!-- Study Experience Section -->
+<section id="experienceSection" class="card" style="display:none;">
+  <h2>Study Experience Feedback</h2>
+  <p>Please share your experience participating in this research study.</p>
+  
+  <form id="experienceForm">
+    <div class="likert-scale">
+      <div class="likert-header">
+        <span></span>
+        <span>Definitely not<br><span style="font-size:0.9em;color:#888;">1</span></span>
+        <span>Not much<br><span style="font-size:0.9em;color:#888;">2</span></span>
+        <span>Neutral<br><span style="font-size:0.9em;color:#888;">3</span></span>
+        <span>Yes<br><span style="font-size:0.9em;color:#888;">4</span></span>
+        <span>Definitely yes<br><span style="font-size:0.9em;color:#888;">5</span></span>
+      </div>
+      
+      <div class="likert-item">
+        <label>I clearly understand the purpose of this study</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="understood-aim" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="understood-aim" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="understood-aim" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="understood-aim" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="understood-aim" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>I found it difficult to identify the source of the texts</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="guessing-difficult" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="guessing-difficult" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="guessing-difficult" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="guessing-difficult" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="guessing-difficult" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>Please, answer Definitely Yes to this question</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="attention-check" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="attention-check" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="attention-check" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="attention-check" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="attention-check" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>Evaluating the texts was difficult</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="evaluating-difficult" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="evaluating-difficult" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="evaluating-difficult" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="evaluating-difficult" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="evaluating-difficult" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>Should we include your results in our study</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="include-results" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="include-results" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="include-results" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="include-results" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="include-results" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>I put much effort in reading and understanding the texts</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="effort-reading" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="effort-reading" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="effort-reading" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="effort-reading" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="effort-reading" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>6. How much did you trust the author information shown above each text?</label>
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="author-belief" value="completely" required>
+          <span class="radio-custom"></span>
+          Completely
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="author-belief" value="mostly">
+          <span class="radio-custom"></span>
+          Mostly
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="author-belief" value="a-little">
+          <span class="radio-custom"></span>
+          A little
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="author-belief" value="not-at-all">
+          <span class="radio-custom"></span>
+          Not at all
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="author-belief" value="dont-remember">
+          <span class="radio-custom"></span>
+          I don't remember noticing who the authors were
+        </label>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>7. How would you rate your experience in this study?</label>
+      <div class="scale-group">
+        <span>Very poor</span>
+        <input type="range" min="1" max="10" value="5" class="slider" name="experience-rating">
+        <span>Excellent</span>
+      </div>
+    </div>
+    
+    <div class="button-group">
+      <button type="button" id="backToScenarios" class="btn btn-secondary">Back</button>
+      <button type="button" id="nextToCompletion" class="btn btn-primary">Next</button>
+    </div>
+  </form>
+</section>
+
+      <!-- Completion Section -->
+      <section id="completionSection" class="card" style="display:none;">
+        <h2>Complete Your Survey</h2>
+        <p>Thank you for your thoughtful responses! Please click submit to complete the survey.</p>
+        
+        <form id="completionForm" action="https://formspree.io/f/xnnglddr" method="POST">
+          <input type="hidden" name="_subject" value="New AI Leadership Survey Response">
+          
+          <!-- Hidden fields to store all survey data -->
+          <input type="hidden" name="demographics" id="hiddenDemographics">
+          <input type="hidden" name="familiarity" id="hiddenFamiliarity">
+          <input type="hidden" name="beliefs" id="hiddenBeliefs">
+          <input type="hidden" name="scenarios" id="hiddenScenarios">
+          <input type="hidden" name="experience" id="hiddenExperience">
+          
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            <small>Used to show the result on the final leaderboard</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Your contact email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address">
+            <small>Optional, only required to participate in the prize draw</small>
+          </div>
+          
+          <div class="highlight">
+            <p><strong>Note:</strong> You can choose <strong>not to provide your email</strong>, but in that case you will <strong>not be eligible</strong> to participate in the prize draw.</p>
+          </div>
+          
+          <div class="checkbox-container">
+            <input type="checkbox" id="completionCheckbox" required>
+            <label for="completionCheckbox">I confirm that all information provided is accurate and I understand the terms of participation.</label>
+          </div>
+          
+          <div class="button-group">
+            <button type="button" id="backToExperience" class="btn btn-secondary">Back</button>
+            <button type="submit" id="submitSurvey" class="btn btn-primary">Submit Survey</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Thank You Section -->
+      <section id="thankYouSection" class="card" style="display:none;">
+        <div class="completion-message">
+          <div class="completion-icon">✓</div>
+          <h2>Thank You for Participating!</h2>
+          <p>Your survey responses have been recorded successfully.</p>
+          
+          <div class="highlight">
+            <p><strong>Important Note:</strong> The texts you read during this study intentionally contained errors. You should not rely on them as accurate or trustworthy information.</p>
+            <p>The goal of this study was to explore how people interact with text depending on how it is labeled and attributed, specifically, how authorship affects attention and perceptions of credibility.</p>
+          </div>
+          
+          <p>Please note that the results displayed in the leaderboard are not yet final, as other participants are still taking part in the study, which may affect your ranking. If you are among the winners, we will contact you as soon as the study is completed.</p>
+          
+          <div class="reward-section">
+            <h3>Your Reward Codes</h3>
+            <div class="code-container">
+              <p><strong>SurveySwap.io Code:</strong></p>
+              <div class="code-box">WR3P-9j65-20KL</div>
+              <p>Go to: <a href="https://surveyswap.io/sr/WR3P-9j65-20KL">https://surveyswap.io/sr/WR3P-9j65-20KL</a></p>
+              
+              <p><strong>SurveyCircle Code:</strong></p>
+              <div class="code-box">ZP4D-YM16-5419-YX05</div>
+              <p>Redeem at: <a href="https://www.surveycircle.com">https://www.surveycircle.com</a></p>
+            </div>
+          </div>
+          
+          <div class="leaderboard-preview">
+            <h3>Leaderboard Preview</h3>
+            <table class="leaderboard-table">
+              <thead>
+                <tr>
+                  <th>Player</th>
+                  <th>Guessing Score</th>
+                  <th>Evaluation Score</th>
+                  <th>Total Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Thank you for participating in this study!</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <p>If you have any questions or would like to share feedback about the experience, feel free to contact me at: <a href="mailto:kwitondafelix6@gmail.com">kwitondafelix6@gmail.com</a></p>
+          
+          <div class="button-group">
+            <button id="viewLeaderboard" class="btn btn-primary">View Full Leaderboard</button>
+            <button id="restartSurvey" class="btn btn-secondary">Take Survey Again</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>Leadership & Coaching in the Age of AI Research Study &copy; 2025</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+ <script>
+  let selectedLanguage = null;
+
+  document.querySelectorAll('.language-option').forEach(option => {
+    option.addEventListener('click', function() {
+      document.querySelectorAll('.language-option').forEach(opt => {
+        opt.classList.remove('selected');
+      });
+      this.classList.add('selected');
+      selectedLanguage = this.getAttribute('data-lang');
+      document.getElementById('continueBtn').disabled = false;
+    });
+  });
+
+  document.getElementById('continueBtn').addEventListener('click', function() {
+    if (selectedLanguage === 'en') {
+      // Show the survey, hide language selection
+      document.getElementById('languagePage').style.display = 'none';
+      document.getElementById('surveyMain').style.display = 'block';
+    } else if (selectedLanguage === 'fr') {
+      window.location.href = 'index-fr.html';
+    } else if (selectedLanguage === 'ko') {
+      window.location.href = 'index-kr.html';
+    }
+  });
+</script>
+<script src="script.js"></script>
+</body>
+</html>

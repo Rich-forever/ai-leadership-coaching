@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leadership & Coaching à l'Ère de l'IA</title>
+  <link rel="stylesheet" href="style.css">
+  
+
+  <!-- Main Survey Content -->
+  <div class="survey-main" id="surveyMain">
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <h1>Leadership & Coaching à l'Ère de l'IA</h1>
+          <p class="subtitle">Veuillez prendre quelques minutes pour remplir cette enquête. Votre contribution est précieuse pour la recherche académique !</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Progress Indicator -->
+      <div class="step-indicator">
+        <div class="step active">
+          <div class="step-number">1</div>
+          <div class="step-label">Introduction</div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-label">Démographie</div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-label">Vérification Connaissances</div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-label">Familiarité</div>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-label">Croyances</div>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <div class="step-label">Scénarios</div>
+        </div>
+        <div class="step">
+          <div class="step-number">7</div>
+          <div class="step-label">Expérience d'Étude</div>
+        </div>
+        <div class="step">
+          <div class="step-number">8</div>
+          <div class="step-label">Terminé</div>
+        </div>
+      </div>
+      
+      <!-- Introduction Section with Consent -->
+      <section id="introSection" class="card">
+        <h2>Introduction à l'Étude de Recherche</h2>
+        <p>Bienvenue et merci de votre intérêt à participer à cette étude de recherche sur le Leadership et le Coaching à l'Ère de l'IA.</p>
+        
+        <div class="highlight">
+          <p><strong>À propos du Chercheur :</strong> Je m'appelle <strong>Felix Kwitonda</strong>, et je suis étudiant en Master en Leadership et Coaching à la Seoul-International-University. Cette expérience fait partie de mon mémoire de Master, supervisé par le <strong>Professeur Dr. Paul Roh</strong>.</p>
+        </div>
+        
+        <p>Il vous sera demandé de lire quelques textes courts et de répondre à des questions les concernant. L'ensemble du processus ne devrait pas prendre plus de <strong>10 minutes</strong>. En complétant les tâches, vous aurez également l'opportunité de gagner de l'argent "15$".</p>
+        
+        <p>La participation est entièrement volontaire, et vous pouvez quitter l'étude à tout moment sans fournir de raison. Toutes les réponses seront traitées confidentiellement et utilisées uniquement à des fins de recherche académique.</p>
+        
+        <p>Si vous avez des questions ou des préoccupations, veuillez me contacter à <a href="mailto:kwitondafelix6@gmail.com">kwitondafelix6@gmail.com</a>.</p>
+        
+        <p>Merci de soutenir la recherche académique !</p>
+        
+        <div class="consent-section">
+          <p><strong>Accord de Consentement :</strong> En participant, vous acceptez que nous utilisions vos données pour la recherche. Vous pouvez quitter l'étude à tout moment sans pénalité.</p>
+          
+          <div class="checkbox-container">
+            <input type="checkbox" id="consentCheckbox">
+            <label for="consentCheckbox">Je confirme avoir lu et compris les informations fournies ci-dessus et consens à participer à cette étude de recherche.</label>
+          </div>
+          
+          <button id="nextBtn" class="btn btn-primary" disabled>Continuer vers l'Enquête</button>
+        </div>
+      </section>
+
+      <!-- Demographics Section -->
+      <section id="demographicsSection" class="card" style="display:none;">
+        <h2>Informations Démographiques</h2>
+        <p>Veuillez fournir quelques informations de base sur vous-même pour nous aider à comprendre la démographie de nos participants.</p>
+        
+        <form id="demographicsForm">
+          <div class="form-group">
+            <label for="age">1. Entrez votre âge :</label>
+            <input type="number" id="age" name="age" min="18" max="100" placeholder="Entrez votre âge" required>
+          </div>
+          
+          <div class="form-group">
+            <label>2. Quel est votre genre ?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="gender" value="male" required>
+                <span class="radio-custom"></span>
+                Masculin
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="gender" value="female">
+                <span class="radio-custom"></span>
+                Féminin
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="gender" value="other">
+                <span class="radio-custom"></span>
+                Je préfère ne pas dire/Autre
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="education">3. Quel est votre plus haut niveau d'éducation ?</label>
+            <select id="education" name="education" required>
+              <option value="" disabled selected>Sélectionnez votre niveau d'éducation</option>
+              <option value="high-school">Lycée</option>
+              <option value="associate">Diplôme d'Associé</option>
+              <option value="bachelor">Licence</option>
+              <option value="master">Master</option>
+              <option value="doctorate">Doctorat ou plus</option>
+              <option value="other">Autre</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="english-level">4. Quel est votre niveau d'anglais ?</label>
+            <select id="english-level" name="english-level" required>
+              <option value="" disabled selected>Sélectionnez votre niveau d'anglais</option>
+              <option value="beginner">Débutant</option>
+              <option value="intermediate">Intermédiaire</option>
+              <option value="advanced">Avancé</option>
+              <option value="native">Natif</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="ai-familiarity">5. À quel point êtes-vous familier avec l'utilisation de l'Intelligence Artificielle (IA) ?</label>
+            <select id="ai-familiarity" name="ai-familiarity" required>
+              <option value="" disabled selected>Sélectionnez une option</option>
+              <option value="very-familiar">Très familier</option>
+              <option value="somewhat-familiar">Assez familier</option>
+              <option value="not-familiar">Pas du tout familier</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="leadership-role">6. Occupez-vous actuellement un rôle de leadership ou de coaching ?</label>
+            <select id="leadership-role" name="leadership-role" required>
+              <option value="" disabled selected>Sélectionnez une option</option>
+              <option value="yes-current">Oui, actuellement</option>
+              <option value="yes-past">Oui, dans le passé</option>
+              <option value="no">Non, jamais</option>
+              <option value="aspiring">Non, mais j'aspire à le faire</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="ai-decision">7. Pensez-vous que l'IA peut aider les leaders à prendre de meilleures décisions ?</label>
+            <select id="ai-decision" name="ai-decision" required>
+              <option value="" disabled selected>Sélectionnez une option</option>
+              <option value="yes">Oui</option>
+              <option value="maybe">Peut-être</option>
+              <option value="no">Non</option>
+            </select>
+          </div>
+          
+          <div class="button-group">
+            <button type="button" id="backToIntro" class="btn btn-secondary">Retour</button>
+            <button type="button" id="nextToKnowledge" class="btn btn-primary">Suivant</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Knowledge Check Section -->
+      <section id="knowledgeSection" class="card" style="display:none;">
+        <h2>Vérification des Connaissances en Leadership & IA</h2>
+        <p>Veuillez répondre aux questions suivantes pour nous aider à comprendre votre niveau de connaissance de base.</p>
+        
+        <form id="knowledgeForm">
+          <div class="form-group">
+            <label>1. À quel point seriez-vous à l'aise d'être coaché ou mentoré par un système assisté par IA ?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="ai-coaching-comfort" value="very-comfortable" required>
+                <span class="radio-custom"></span>
+                Très à l'aise
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="ai-coaching-comfort" value="somewhat-comfortable">
+                <span class="radio-custom"></span>
+                Assez à l'aise
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="ai-coaching-comfort" value="not-comfortable">
+                <span class="radio-custom"></span>
+                Pas à l'aise
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>2. Quel est le plus grand défi auquel les leaders sont confrontés aujourd'hui pour guider leurs équipes ?</label>
+            <div class="checkbox-group">
+              <label class="checkbox-option">
+                <input type="checkbox" name="leadership-challenges" value="communication">
+                <span class="checkbox-custom"></span>
+                Communication et empathie
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="leadership-challenges" value="time-management">
+                <span class="checkbox-custom"></span>
+                Gestion du temps
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="leadership-challenges" value="data-decisions">
+                <span class="checkbox-custom"></span>
+                Prise de décision basée sur les données
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="leadership-challenges" value="rapid-change">
+                <span class="checkbox-custom"></span>
+                Suivre le rythme du changement rapide
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="leadership-challenges" value="others">
+                <span class="checkbox-custom"></span>
+                Autres (veuillez préciser)
+                <textarea id="ai-risks" name="ai-risks" placeholder="Veuillez partager votre raison" ></textarea>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>3. À votre avis, qu'est-ce qui limite le plus les coachs humains ?</label>
+            <div class="checkbox-group">
+              <label class="checkbox-option">
+                <input type="checkbox" name="coach-limitations" value="data-insights">
+                <span class="checkbox-custom"></span>
+                Manque d'aperçus basés sur les données
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="coach-limitations" value="limited-availability">
+                <span class="checkbox-custom"></span>
+                Disponibilité limitée
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="coach-limitations" value="emotional-bias">
+                <span class="checkbox-custom"></span>
+                Biais émotionnel
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="coach-limitations" value="cost-accessibility">
+                <span class="checkbox-custom"></span>
+                Coût ou accessibilité
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>4. Pensez-vous que la technologie peut soutenir l'empathie et l'intelligence émotionnelle humaines, ou les remplacer ?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="tech-empathy" value="support" required>
+                <span class="radio-custom"></span>
+                Soutenir
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="tech-empathy" value="replace">
+                <span class="radio-custom"></span>
+                Remplacer
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="tech-empathy" value="not-sure">
+                <span class="radio-custom"></span>
+                Pas sûr
+              </label>
+            </div>
+          </div>
+         
+          <div class="form-group">
+            <label>5. Qu'est-ce qui vous ferait faire confiance à un outil d'IA dans des contextes de leadership ou de coaching ?</label>
+            <div class="checkbox-group">
+              <label class="checkbox-option">
+                <input type="checkbox" name="ai-trust-factors" value="transparency">
+                <span class="checkbox-custom"></span>
+                Transparence
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="ai-trust-factors" value="human-oversight">
+                <span class="checkbox-custom"></span>
+                Supervision humaine
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="ai-trust-factors" value="proven-success">
+                <span class="checkbox-custom"></span>
+                Histoire de réussite prouvée
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="ai-trust-factors" value="ethical-guidelines">
+                <span class="checkbox-custom"></span>
+                Lignes directrices éthiques
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>6. Seriez-vous intéressé à tester un outil alimenté par l'IA qui soutient les décisions de leadership ou de coaching ?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="ai-testing-interest" value="definitely" required>
+                <span class="radio-custom"></span>
+                Absolument
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="ai-testing-interest" value="maybe">
+                <span class="radio-custom"></span>
+                Peut-être
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="ai-testing-interest" value="not-interested">
+                <span class="radio-custom"></span>
+                Pas intéressé
+              </label>
+            </div>
+          </div>
+          
+          <div class="button-group">
+            <button type="button" id="backToDemographics" class="btn btn-secondary">Retour</button>
+            <button type="button" id="nextToFamiliarity" class="btn btn-primary">Suivant</button>
+          </div>
+        </form>
+      </section>
+
+    <!-- Familiarity Section -->
+<section id="familiaritySection" class="card" style="display:none;">
+  <h2>Familiarité avec l'IA et la Technologie</h2>
+  <p>Veuillez indiquer votre niveau de familiarité avec les concepts et technologies suivants.</p>
+  
+  <form id="familiarityForm">
+    <div class="likert-scale">
+      <div class="likert-header">
+        <span></span>
+        <span>Pas du tout familier<br><span style="font-size:0.9em;color:#888;">1</span></span>
+        <span>Légèrement familier<br><span style="font-size:0.9em;color:#888;">2</span></span>
+        <span>Modérément familier<br><span style="font-size:0.9em;color:#888;">3</span></span>
+        <span>Très familier<br><span style="font-size:0.9em;color:#888;">4</span></span>
+        <span>Extrêmement familier<br><span style="font-size:0.9em;color:#888;">5</span></span>
+      </div>
+      
+      <div class="likert-item">
+        <label>Je suis familier avec l'utilisation de l'Intelligence Artificielle (ex: ChatGPT, Claude)</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="ai-familiarity-scale" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-familiarity-scale" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-familiarity-scale" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-familiarity-scale" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-familiarity-scale" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>Je suis familier avec les outils et méthodologies de développement du leadership</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="leadership-tools-scale" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="leadership-tools-scale" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="leadership-tools-scale" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="leadership-tools-scale" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="leadership-tools-scale" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>Je suis familier avec les techniques et cadres de coaching</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="coaching-techniques-scale" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="coaching-techniques-scale" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="coaching-techniques-scale" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="coaching-techniques-scale" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="coaching-techniques-scale" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>J'aime explorer les nouvelles technologies, même si cela prend du temps à apprendre</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="tech-exploration-scale" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tech-exploration-scale" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tech-exploration-scale" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tech-exploration-scale" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tech-exploration-scale" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>Je préfère généralement les résumés rapides à la lecture d'explications détaillées</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="prefer-summaries-scale" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="prefer-summaries-scale" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="prefer-summaries-scale" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="prefer-summaries-scale" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="prefer-summaries-scale" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="button-group">
+      <button type="button" id="backToKnowledge" class="btn btn-secondary">Retour</button>
+      <button type="button" id="nextToBeliefs" class="btn btn-primary">Suivant</button>
+    </div>
+  </form>
+</section>
+
+
+<!-- Beliefs Section -->
+<section id="beliefsSection" class="card" style="display:none;">
+  <h2>Croyances sur l'IA dans le Leadership & Coaching</h2>
+  <p>Veuillez partager vos perspectives sur le rôle de l'IA dans les contextes de leadership et de coaching.</p>
+  
+  <form id="beliefsForm">
+    <div class="likert-scale">
+      <div class="likert-header">
+        <span></span>
+        <span>Fortement en désaccord<br><span style="font-size:0.9em;color:#888;">1</span></span>
+        <span>En désaccord<br><span style="font-size:0.9em;color:#888;">2</span></span>
+        <span>Neutre<br><span style="font-size:0.9em;color:#888;">3</span></span>
+        <span>D'accord<br><span style="font-size:0.9em;color:#888;">4</span></span>
+        <span>Fortement d'accord<br><span style="font-size:0.9em;color:#888;">5</span></span>
+      </div>
+      
+      <div class="likert-item">
+        <label>L'IA peut efficacement développer l'intelligence émotionnelle chez les leaders</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="ai-emotional-intelligence" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-emotional-intelligence" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-emotional-intelligence" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-emotional-intelligence" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-emotional-intelligence" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>Je crois que les outils de coaching IA peuvent fournir des plans de développement personnalisés</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="ai-personalized-plans" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-personalized-plans" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-personalized-plans" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-personalized-plans" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-personalized-plans" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>L'IA peut montrer aux leaders les domaines qu'ils pourraient manquer ou ne pas remarquer</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="ai-blind-spots" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-blind-spots" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-blind-spots" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-blind-spots" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-blind-spots" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>La connexion humaine est essentielle pour un coaching efficace</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="human-connection" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="human-connection" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="human-connection" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="human-connection" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="human-connection" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>Je m'inquiète de savoir si l'utilisation de l'IA pour le développement du leadership est juste ou non</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="ethical-concerns" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ethical-concerns" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ethical-concerns" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ethical-concerns" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ethical-concerns" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="ai-benefits">Quel est le plus grand avantage potentiel de l'IA dans le leadership et le coaching selon vous ?</label>
+      <textarea id="ai-benefits" name="ai-benefits" placeholder="Veuillez partager vos réflexions..." required></textarea>
+    </div>
+    
+    <div class="form-group">
+      <label for="ai-risks">Quelles préoccupations ou risques associez-vous à l'IA dans le leadership et le coaching ?</label>
+      <textarea id="ai-risks" name="ai-risks" placeholder="Veuillez partager vos préoccupations..." required></textarea>
+    </div>
+    
+    <div class="button-group">
+      <button type="button" id="backToFamiliarity" class="btn btn-secondary">Retour</button>
+      <button type="button" id="nextToScenarios" class="btn btn-primary">Suivant</button>
+    </div>
+  </form>
+</section>
+
+      <!-- Scenarios Section -->
+<section id="scenariosSection" class="card" style="display:none;">
+  <h2>Scénarios de Leadership IA</h2>
+  <p>Veuillez lire les scénarios suivants et répondre aux questions basées sur votre perspective.</p>
+  
+  <div class="scenario-container">
+    <div class="scenario">
+      <h3>Scénario 1 : Retour d'information sur le leadership généré par IA</h3>
+      <div class="scenario-content">
+        <p><strong>AUTEUR IA</strong></p>
+        <p>Le leadership efficace à l'ère numérique nécessite un équilibre entre les insights basés sur les données et l'intuition humaine. Les outils d'IA peuvent analyser les modèles de communication, les délais de prise de décision et les retours d'équipe pour identifier les angles morts du leadership qui pourraient autrement passer inaperçus.</p>
+        <p>Par exemple, un système d'IA pourrait détecter qu'un leader interrompt systématiquement les membres de l'équipe pendant les sessions de brainstorming, potentiellement étouffant l'innovation. Ou il pourrait identifier des modèles où les décisions critiques sont retardées en raison d'une paralysie d'analyse.</p>
+        <p>L'application la plus précieuse de l'IA dans le développement du leadership réside dans sa capacité à fournir un retour objectif et cohérent que les observateurs humains pourraient hésiter à délivrer en raison des dynamiques sociales ou des relations personnelles.</p>
+      </div>
+      
+      <div class="scenario-questions">
+        <div class="form-group">
+          <label>Qui pensez-vous être l'auteur de ce texte ?</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="scenario1-author" value="ai" required>
+              <span class="radio-custom"></span>
+              IA
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="scenario1-author" value="human">
+              <span class="radio-custom"></span>
+              Humain
+            </label>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Comment évalueriez-vous la précision de ce texte ? (précision, exactitude, véracité)</label>
+          <div class="scale-group">
+            <span>Très faible</span>
+            <input type="range" min="1" max="10" value="5" class="slider" name="scenario1-accuracy">
+            <span>Très élevée</span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Comment évalueriez-vous la lisibilité de ce texte ? (clarté, facilité de compréhension, ton, style)</label>
+          <div class="scale-group">
+            <span>Très faible</span>
+            <input type="range" min="1" max="10" value="5" class="slider" name="scenario1-readability">
+            <span>Très élevée</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="scenario">
+      <h3>Scénario 2 : Perspective de Coaching Humain</h3>
+      <div class="scenario-content">
+        <p><strong>AUTEUR INCONNU</strong></p>
+        <p>Écoutez, voici la vérité sur le développement du leadership que personne ne veut admettre : on ne peut pas devenir un meilleur leader grâce à un algorithme. La vraie croissance se produit dans des conversations désordonnées et inconfortables où quelqu'un vous confronte à vos absurdités.</p>
+        <p>J'ai vu des cadres avec des scores de feedback à 360 degrés parfaits qui ne pouvaient pas inspirer leurs équipes pour sauver leur vie. Pendant ce temps, les leaders les plus efficaces que j'ai coachés ont souvent eu des débuts difficiles mais ont montré une curiosité authentique pour leurs collaborateurs.</p>
+        <p>La magie opère quand un coach vous tend un miroir et dit : "Voici comment vous vous présentez, et voici pourquoi ça ne fonctionne pas." Aucune IA ne peut reproduire ce moment de connexion humaine et de responsabilisation.</p>
+      </div>
+      
+      <div class="scenario-questions">
+        <div class="form-group">
+          <label>Qui pensez-vous être l'auteur de ce texte ?</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="scenario2-author" value="ai" required>
+              <span class="radio-custom"></span>
+              IA
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="scenario2-author" value="human">
+              <span class="radio-custom"></span>
+              Humain
+            </label>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Comment évalueriez-vous la précision de ce texte ? (précision, exactitude, véracité)</label>
+          <div class="scale-group">
+            <span>Très faible</span>
+            <input type="range" min="1" max="10" value="5" class="slider" name="scenario2-accuracy">
+            <span>Très élevée</span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Comment évalueriez-vous la lisibilité de ce texte ? (clarté, facilité de compréhension, ton, style)</label>
+          <div class="scale-group">
+            <span>Très faible</span>
+            <input type="range" min="1" max="10" value="5" class="slider" name="scenario2-readability">
+            <span>Très élevée</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="button-group">
+    <button type="button" id="backToBeliefs" class="btn btn-secondary">Retour</button>
+    <button type="button" id="nextToExperience" class="btn btn-primary">Suivant</button>
+  </div>
+</section>
+
+      <!-- Study Experience Section -->
+<section id="experienceSection" class="card" style="display:none;">
+  <h2>Retour d'Expérience sur l'Étude</h2>
+  <p>Veuillez partager votre expérience de participation à cette étude de recherche.</p>
+  
+  <form id="experienceForm">
+    <div class="likert-scale">
+      <div class="likert-header">
+        <span></span>
+        <span>Certainement non<br><span style="font-size:0.9em;color:#888;">1</span></span>
+        <span>Pas beaucoup<br><span style="font-size:0.9em;color:#888;">2</span></span>
+        <span>Neutre<br><span style="font-size:0.9em;color:#888;">3</span></span>
+        <span>Oui<br><span style="font-size:0.9em;color:#888;">4</span></span>
+        <span>Certainement oui<br><span style="font-size:0.9em;color:#888;">5</span></span>
+      </div>
+      
+      <div class="likert-item">
+        <label>Je comprends clairement l'objectif de cette étude</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="understood-aim" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="understood-aim" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="understood-aim" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="understood-aim" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="understood-aim" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>J'ai trouvé difficile d'identifier la source des textes</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="guessing-difficult" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="guessing-difficult" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="guessing-difficult" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="guessing-difficult" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="guessing-difficult" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>Veuillez répondre Certainement Oui à cette question</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="attention-check" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="attention-check" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="attention-check" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="attention-check" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="attention-check" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>Évaluer les textes était difficile</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="evaluating-difficult" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="evaluating-difficult" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="evaluating-difficult" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="evaluating-difficult" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="evaluating-difficult" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>Devrions-nous inclure vos résultats dans notre étude</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="include-results" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="include-results" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="include-results" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="include-results" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="include-results" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>J'ai fait beaucoup d'efforts pour lire et comprendre les textes</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="effort-reading" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="effort-reading" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="effort-reading" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="effort-reading" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="effort-reading" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>6. À quel point avez-vous fait confiance aux informations sur l'auteur affichées au-dessus de chaque texte ?</label>
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="author-belief" value="completely" required>
+          <span class="radio-custom"></span>
+          Complètement
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="author-belief" value="mostly">
+          <span class="radio-custom"></span>
+          La plupart du temps
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="author-belief" value="a-little">
+          <span class="radio-custom"></span>
+          Un peu
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="author-belief" value="not-at-all">
+          <span class="radio-custom"></span>
+          Pas du tout
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="author-belief" value="dont-remember">
+          <span class="radio-custom"></span>
+          Je ne me souviens pas d'avoir remarqué qui étaient les auteurs
+        </label>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>7. Comment évalueriez-vous votre expérience dans cette étude ?</label>
+      <div class="scale-group">
+        <span>Très mauvaise</span>
+        <input type="range" min="1" max="10" value="5" class="slider" name="experience-rating">
+        <span>Excellente</span>
+      </div>
+    </div>
+    
+    <div class="button-group">
+      <button type="button" id="backToScenarios" class="btn btn-secondary">Retour</button>
+      <button type="button" id="nextToCompletion" class="btn btn-primary">Suivant</button>
+    </div>
+  </form>
+</section>
+
+  <!-- Completion Section -->
+  <section id="completionSection" class="card" style="display:none;">
+    <h2>Complétez Votre Enquête</h2>
+    <p>Merci pour vos réponses réfléchies ! Veuillez cliquer sur soumettre pour terminer l'enquête.</p>
+    
+    <form id="completionForm" action="https://formspree.io/f/xnnglddr" method="POST">
+      <input type="hidden" name="_subject" value="New AI Leadership Survey Response - French">
+      
+      <!-- Hidden fields to store all survey data -->
+      <input type="hidden" name="demographics" id="hiddenDemographics">
+      <input type="hidden" name="familiarity" id="hiddenFamiliarity">
+      <input type="hidden" name="beliefs" id="hiddenBeliefs">
+      <input type="hidden" name="scenarios" id="hiddenScenarios">
+      <input type="hidden" name="experience" id="hiddenExperience">
+      
+      <div class="form-group">
+        <label for="name">Nom Complet</label>
+        <input type="text" id="name" name="name" placeholder="Entrez votre nom complet" required>
+        <small>Utilisé pour afficher le résultat sur le classement final</small>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Votre email de contact</label>
+        <input type="email" id="email" name="email" placeholder="Entrez votre adresse email">
+        <small>Optionnel, requis uniquement pour participer au tirage au sort</small>
+      </div>
+      
+      <div class="highlight">
+        <p><strong>Note :</strong> Vous pouvez choisir de <strong>ne pas fournir votre email</strong>, mais dans ce cas vous <strong>ne serez pas éligible</strong> pour participer au tirage au sort.</p>
+      </div>
+      
+      <div class="checkbox-container">
+        <input type="checkbox" id="completionCheckbox" required>
+        <label for="completionCheckbox">Je confirme que toutes les informations fournies sont exactes et que je comprends les conditions de participation.</label>
+      </div>
+      
+      <div class="button-group">
+        <button type="button" id="backToExperience" class="btn btn-secondary">Retour</button>
+        <button type="submit" id="submitSurvey" class="btn btn-primary">Soumettre l'Enquête</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Thank You Section -->
+  <section id="thankYouSection" class="card" style="display:none;">
+    <div class="completion-message">
+      <div class="completion-icon">✓</div>
+      <h2>Merci d'avoir participé !</h2>
+      <p>Vos réponses à l'enquête ont été enregistrées avec succès.</p>
+      
+      <div class="highlight">
+        <p><strong>Note importante :</strong> Les textes que vous avez lus pendant cette étude contenaient intentionnellement des erreurs. Vous ne devriez pas vous y fier comme des informations précises ou dignes de confiance.</p>
+        <p>L'objectif de cette étude était d'explorer comment les gens interagissent avec le texte en fonction de la façon dont il est étiqueté et attribué, spécifiquement, comment la paternité affecte l'attention et les perceptions de crédibilité.</p>
+      </div>
+      
+      <p>Veuillez noter que les résultats affichés dans le classement ne sont pas encore définitifs, car d'autres participants prennent encore part à l'étude, ce qui peut affecter votre classement. Si vous faites partie des gagnants, nous vous contacterons dès que l'étude sera terminée.</p>
+      
+      <div class="reward-section">
+        <h3>Vos Codes de Récompense</h3>
+        <div class="code-container">
+          <p><strong>Code SurveySwap.io :</strong></p>
+          <div class="code-box">WR3P-9j65-20KL</div>
+          <p>Allez sur : <a href="https://surveyswap.io/sr/WR3P-9j65-20KL">https://surveyswap.io/sr/WR3P-9j65-20KL</a></p>
+          
+          <p><strong>Code SurveyCircle :</strong></p>
+          <div class="code-box">ZP4D-YM16-5419-YX05</div>
+          <p>Échangez sur : <a href="https://www.surveycircle.com">https://www.surveycircle.com</a></p>
+        </div>
+      </div>
+      
+      <div class="leaderboard-preview">
+        <h3>Aperçu du Classement</h3>
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th>Joueur</th>
+              <th>Score de Dévination</th>
+              <th>Score d'Évaluation</th>
+              <th>Score Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Merci d'avoir participé à cette étude !</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p>Si vous avez des questions ou souhaitez partager des commentaires sur l'expérience, n'hésitez pas à me contacter à : <a href="mailto:kwitondafelix6@gmail.com">kwitondafelix6@gmail.com</a></p>
+      
+      <div class="button-group">
+        <button id="viewLeaderboard" class="btn btn-primary">Voir le Classement Complet</button>
+        <button id="restartSurvey" class="btn btn-secondary">Refaire l'Enquête</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="container">
+    <p>Étude de Recherche sur le Leadership & Coaching à l'Ère de l'IA &copy; 2025</p>
+  </div>
+</footer>
+</div>
+
+<script>
+// Add this JavaScript to handle the navigation
+document.addEventListener('DOMContentLoaded', function() {
+  // Navigation from Scenarios to Experience
+  document.getElementById('nextToExperience')?.addEventListener('click', function() {
+    document.getElementById('scenariosSection').style.display = 'none';
+    document.getElementById('experienceSection').style.display = 'block';
+    updateProgressIndicator(7); // Update to step 7
+  });
+
+  // Navigation from Experience to Completion
+  document.getElementById('nextToCompletion')?.addEventListener('click', function() {
+    document.getElementById('experienceSection').style.display = 'none';
+    document.getElementById('completionSection').style.display = 'block';
+    updateProgressIndicator(8); // Update to step 8
+  });
+
+  // Back button from Experience to Scenarios
+  document.getElementById('backToScenarios')?.addEventListener('click', function() {
+    document.getElementById('experienceSection').style.display = 'none';
+    document.getElementById('scenariosSection').style.display = 'block';
+    updateProgressIndicator(6); // Update to step 6
+  });
+
+  // Back button from Completion to Experience
+  document.getElementById('backToExperience')?.addEventListener('click', function() {
+    document.getElementById('completionSection').style.display = 'none';
+    document.getElementById('experienceSection').style.display = 'block';
+    updateProgressIndicator(7); // Update to step 7
+  });
+
+  // Function to update progress indicator
+  function updateProgressIndicator(stepNumber) {
+    document.querySelectorAll('.step').forEach((step, index) => {
+      if (index + 1 === stepNumber) {
+        step.classList.add('active');
+      } else {
+        step.classList.remove('active');
+      }
+    });
+  }
+});
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

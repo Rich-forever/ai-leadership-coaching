@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 시대의 리더십과 코칭</title>
+  <link rel="stylesheet" href="style.css">
+
+
+  <!-- Main Survey Content -->
+  <div class="survey-main" id="surveyMain">
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <h1>AI 시대의 리더십과 코칭</h1>
+          <p class="subtitle">설문에 참여해 주셔서 감사합니다. 귀하의 의견은 학술 연구에 매우 소중합니다!</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Progress Indicator -->
+      <div class="step-indicator">
+        <div class="step active">
+          <div class="step-number">1</div>
+          <div class="step-label">소개</div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-label">인구통계</div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-label">지식 확인</div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-label">익숙도</div>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-label">신념</div>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <div class="step-label">시나리오</div>
+        </div>
+        <div class="step">
+          <div class="step-number">7</div>
+          <div class="step-label">연구 경험</div>
+        </div>
+        <div class="step">
+          <div class="step-number">8</div>
+          <div class="step-label">완료</div>
+        </div>
+      </div>
+      
+      <!-- Introduction Section with Consent -->
+      <section id="introSection" class="card">
+        <h2>연구 연구 소개</h2>
+        <p>AI 시대의 리더십과 코칭에 관한 이 연구에 참여해 주셔서 환영하고 감사드립니다.</p>
+        
+        <div class="highlight">
+          <p><strong>연구자 소개:</strong> 제 이름은 <strong>Felix Kwitonda</strong>이며, 서울국제대학교에서 리더십과 코칭을 전공하는 대학원생입니다. 이 실험은 <strong>Paul Roh 교수님</strong>의 지도 하에 진행되는 석사 학위 논문의 일부입니다.</p>
+        </div>
+        
+        <p>몇 가지 짧은 글을 읽고 관련 질문에 답변해 주시면 됩니다. 전체 과정은 <strong>10분</strong> 이내로 완료될 예정입니다. 과제를 완료하면 "15$"를 얻을 기회도 있습니다.</p>
+        
+        <p>참여는 전적으로 자발적이며, 언제든지 이유 없이 연구를 중단할 수 있습니다. 모든 응답은 기밀적으로 처리되며 순수히 학술 연구 목적으로만 사용됩니다.</p>
+        
+        <p>질문이나 우려사항이 있으시면 <a href="mailto:kwitondafelix6@gmail.com">kwitondafelix6@gmail.com</a>으로 연락 주시기 바랍니다.</p>
+        
+        <p>학술 연구를 지원해 주셔서 감사합니다!</p>
+        
+        <div class="consent-section">
+          <p><strong>동의 계약:</strong> 참여함으로써 귀하는 연구 목적으로 귀하의 데이터를 사용하는 데 동의합니다. 언제든지 불이익 없이 연구를 떠날 수 있습니다.</p>
+          
+          <div class="checkbox-container">
+            <input type="checkbox" id="consentCheckbox">
+            <label for="consentCheckbox">위에 제공된 정보를 읽고 이해했으며, 이 연구에 참여하는 데 동의합니다.</label>
+          </div>
+          
+          <button id="nextBtn" class="btn btn-primary" disabled>설문 계속하기</button>
+        </div>
+      </section>
+
+      <!-- Demographics Section -->
+      <section id="demographicsSection" class="card" style="display:none;">
+        <h2>인구통계 정보</h2>
+        <p>참가자 인구통계를 이해하는 데 도움이 되도록 귀하에 대한 기본 정보를 제공해 주세요.</p>
+        
+        <form id="demographicsForm">
+          <div class="form-group">
+            <label for="age">1. 나이를 입력하세요:</label>
+            <input type="number" id="age" name="age" min="18" max="100" placeholder="나이를 입력하세요" required>
+          </div>
+          
+          <div class="form-group">
+            <label>2. 성별은 무엇입니까?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="gender" value="male" required>
+                <span class="radio-custom"></span>
+                남성
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="gender" value="female">
+                <span class="radio-custom"></span>
+                여성
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="gender" value="other">
+                <span class="radio-custom"></span>
+                답변 원치 않음/기타
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="education">3. 최종 학력은 무엇입니까?</label>
+            <select id="education" name="education" required>
+              <option value="" disabled selected>학력 수준을 선택하세요</option>
+              <option value="high-school">고등학교</option>
+              <option value="associate">전문학사</option>
+              <option value="bachelor">학사</option>
+              <option value="master">석사</option>
+              <option value="doctorate">박사 이상</option>
+              <option value="other">기타</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="english-level">4. 영어 수준은 어떻게 되십니까?</label>
+            <select id="english-level" name="english-level" required>
+              <option value="" disabled selected>영어 수준을 선택하세요</option>
+              <option value="beginner">초급</option>
+              <option value="intermediate">중급</option>
+              <option value="advanced">고급</option>
+              <option value="native">원어민</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="ai-familiarity">5. 인공지능(AI) 사용에 얼마나 익숙하십니까?</label>
+            <select id="ai-familiarity" name="ai-familiarity" required>
+              <option value="" disabled selected>옵션을 선택하세요</option>
+              <option value="very-familiar">매우 익숙함</option>
+              <option value="somewhat-familiar">다소 익숙함</option>
+              <option value="not-familiar">전혀 익숙하지 않음</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="leadership-role">6. 현재 리더십이나 코칭 역할을 맡고 계십니까?</label>
+            <select id="leadership-role" name="leadership-role" required>
+              <option value="" disabled selected>옵션을 선택하세요</option>
+              <option value="yes-current">예, 현재</option>
+              <option value="yes-past">예, 과거에</option>
+              <option value="no">아니오, 한 번도 없음</option>
+              <option value="aspiring">아니오, 하지만 희망함</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="ai-decision">7. AI가 리더들이 더 나은 결정을 내리는 데 도움이 될 수 있다고 생각하십니까?</label>
+            <select id="ai-decision" name="ai-decision" required>
+              <option value="" disabled selected>옵션을 선택하세요</option>
+              <option value="yes">예</option>
+              <option value="maybe">아마도</option>
+              <option value="no">아니오</option>
+            </select>
+          </div>
+          
+          <div class="button-group">
+            <button type="button" id="backToIntro" class="btn btn-secondary">뒤로</button>
+            <button type="button" id="nextToKnowledge" class="btn btn-primary">다음</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Knowledge Check Section -->
+      <section id="knowledgeSection" class="card" style="display:none;">
+        <h2>리더십 & AI 지식 확인</h2>
+        <p>기본 지식을 이해하는 데 도움이 되도록 다음 질문에 답변해 주세요.</p>
+        
+        <form id="knowledgeForm">
+          <div class="form-group">
+            <label>1. AI 지원 시스템으로 코칭이나 멘토링을 받는 것에 얼마나 편안하게 느끼시겠습니까?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="ai-coaching-comfort" value="very-comfortable" required>
+                <span class="radio-custom"></span>
+                매우 편안함
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="ai-coaching-comfort" value="somewhat-comfortable">
+                <span class="radio-custom"></span>
+                다소 편안함
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="ai-coaching-comfort" value="not-comfortable">
+                <span class="radio-custom"></span>
+                편안하지 않음
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>2. 오늘날 리더들이 팀을 이끌 때 직면하는 가장 큰 도전은 무엇이라고 생각하십니까?</label>
+            <div class="checkbox-group">
+              <label class="checkbox-option">
+                <input type="checkbox" name="leadership-challenges" value="communication">
+                <span class="checkbox-custom"></span>
+                의사소통과 공감
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="leadership-challenges" value="time-management">
+                <span class="checkbox-custom"></span>
+                시간 관리
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="leadership-challenges" value="data-decisions">
+                <span class="checkbox-custom"></span>
+                데이터 기반 의사 결정
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="leadership-challenges" value="rapid-change">
+                <span class="checkbox-custom"></span>
+                빠른 변화에 대처
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="leadership-challenges" value="others">
+                <span class="checkbox-custom"></span>
+                기타 (구체적으로 기재)
+               <textarea id="ai-risks" name="ai-risks" placeholder="여기에 이유를 입력하세요" ></textarea>
+
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>3. 귀하의 의견으로, 인간 코치를 가장 제한하는 것은 무엇입니까?</label>
+            <div class="checkbox-group">
+              <label class="checkbox-option">
+                <input type="checkbox" name="coach-limitations" value="data-insights">
+                <span class="checkbox-custom"></span>
+                데이터 통찰력 부족
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="coach-limitations" value="limited-availability">
+                <span class="checkbox-custom"></span>
+                제한된 가용성
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="coach-limitations" value="emotional-bias">
+                <span class="checkbox-custom"></span>
+                감정적 편향
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="coach-limitations" value="cost-accessibility">
+                <span class="checkbox-custom"></span>
+                비용 또는 접근성
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>4. 기술이 인간의 공감과 감성 지능을 지원할 수 있다고 생각하십니까, 아니면 대체할 수 있다고 생각하십니까?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="tech-empathy" value="support" required>
+                <span class="radio-custom"></span>
+                지원
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="tech-empathy" value="replace">
+                <span class="radio-custom"></span>
+                대체
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="tech-empathy" value="not-sure">
+                <span class="radio-custom"></span>
+                잘 모르겠음
+              </label>
+            </div>
+          </div>
+         
+          <div class="form-group">
+            <label>5. 리더십이나 코칭 맥락에서 AI 도구를 신뢰하게 만드는 것은 무엇입니까?</label>
+            <div class="checkbox-group">
+              <label class="checkbox-option">
+                <input type="checkbox" name="ai-trust-factors" value="transparency">
+                <span class="checkbox-custom"></span>
+                투명성
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="ai-trust-factors" value="human-oversight">
+                <span class="checkbox-custom"></span>
+                인간의 감독
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="ai-trust-factors" value="proven-success">
+                <span class="checkbox-custom"></span>
+                입증된 성공 사례
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="ai-trust-factors" value="ethical-guidelines">
+                <span class="checkbox-custom"></span>
+                윤리 지침
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>6. 리더십이나 코칭 결정을 지원하는 AI 기반 도구를 테스트하는 데 관심이 있으십니까?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="ai-testing-interest" value="definitely" required>
+                <span class="radio-custom"></span>
+                매우 관심 있음
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="ai-testing-interest" value="maybe">
+                <span class="radio-custom"></span>
+                아마도
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="ai-testing-interest" value="not-interested">
+                <span class="radio-custom"></span>
+                관심 없음
+              </label>
+            </div>
+          </div>
+          
+          <div class="button-group">
+            <button type="button" id="backToDemographics" class="btn btn-secondary">뒤로</button>
+            <button type="button" id="nextToFamiliarity" class="btn btn-primary">다음</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Familiarity Section -->
+<section id="familiaritySection" class="card" style="display:none;">
+  <h2>AI 및 기술에 대한 익숙도</h2>
+  <p>다음 개념과 기술에 대한 익숙도 수준을 표시해 주세요.</p>
+  
+  <form id="familiarityForm">
+    <div class="likert-scale">
+      <div class="likert-header">
+        <span></span>
+        <span>전혀 익숙하지 않음<br><span style="font-size:0.9em;color:#888;">1</span></span>
+        <span>조금 익숙함<br><span style="font-size:0.9em;color:#888;">2</span></span>
+        <span>보통 정도 익숙함<br><span style="font-size:0.9em;color:#888;">3</span></span>
+        <span>매우 익숙함<br><span style="font-size:0.9em;color:#888;">4</span></span>
+        <span>극히 익숙함<br><span style="font-size:0.9em;color:#888;">5</span></span>
+      </div>
+      
+      <div class="likert-item">
+        <label>인공지능 사용(예: ChatGPT, Claude)에 익숙합니다</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="ai-familiarity-scale" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-familiarity-scale" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-familiarity-scale" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-familiarity-scale" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-familiarity-scale" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>리더십 개발 도구와 방법론에 익숙합니다</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="leadership-tools-scale" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="leadership-tools-scale" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="leadership-tools-scale" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="leadership-tools-scale" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="leadership-tools-scale" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>코칭 기술과 프레임워크에 익숙합니다</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="coaching-techniques-scale" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="coaching-techniques-scale" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="coaching-techniques-scale" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="coaching-techniques-scale" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="coaching-techniques-scale" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>배우는 데 시간이 걸리더라도 새로운 기술을 탐구하는 것을 즐깁니다</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="tech-exploration-scale" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tech-exploration-scale" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tech-exploration-scale" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tech-exploration-scale" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tech-exploration-scale" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>일반적으로 자세한 설명을 읽는 것보다 빠른 요약을 선호합니다</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="prefer-summaries-scale" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="prefer-summaries-scale" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="prefer-summaries-scale" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="prefer-summaries-scale" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="prefer-summaries-scale" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="button-group">
+      <button type="button" id="backToKnowledge" class="btn btn-secondary">뒤로</button>
+      <button type="button" id="nextToBeliefs" class="btn btn-primary">다음</button>
+    </div>
+  </form>
+</section>
+
+     <!-- Beliefs Section -->
+<section id="beliefsSection" class="card" style="display:none;">
+  <h2>리더십 & 코칭에서 AI에 대한 신념</h2>
+  <p>리더십과 코칭 맥락에서 AI의 역할에 대한 관점을 공유해 주세요.</p>
+  
+  <form id="beliefsForm">
+    <div class="likert-scale">
+      <div class="likert-header">
+        <span></span>
+        <span>매우 동의하지 않음<br><span style="font-size:0.9em;color:#888;">1</span></span>
+        <span>동의하지 않음<br><span style="font-size:0.9em;color:#888;">2</span></span>
+        <span>중립<br><span style="font-size:0.9em;color:#888;">3</span></span>
+        <span>동의함<br><span style="font-size:0.9em;color:#888;">4</span></span>
+        <span>매우 동의함<br><span style="font-size:0.9em;color:#888;">5</span></span>
+      </div>
+      
+      <div class="likert-item">
+        <label>AI는 리더들의 감성 지능을 효과적으로 개발할 수 있습니다</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="ai-emotional-intelligence" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-emotional-intelligence" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-emotional-intelligence" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-emotional-intelligence" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-emotional-intelligence" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>AI 코칭 도구가 맞춤형 개발 계획을 제공할 수 있다고 믿습니다</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="ai-personalized-plans" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-personalized-plans" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-personalized-plans" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-personalized-plans" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-personalized-plans" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>AI는 리더들이 놓치거나 알아차리지 못하는 영역을 보여줄 수 있습니다</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="ai-blind-spots" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-blind-spots" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-blind-spots" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-blind-spots" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ai-blind-spots" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>인간적 연결은 효과적인 코칭에 필수적입니다</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="human-connection" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="human-connection" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="human-connection" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="human-connection" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="human-connection" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>리더십 개발을 위해 AI를 사용하는 것이 옳은지 그른지 걱정됩니다</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="ethical-concerns" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ethical-concerns" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ethical-concerns" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ethical-concerns" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="ethical-concerns" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="ai-benefits">리더십과 코칭에서 AI의 가장 큰 잠재적 이점은 무엇이라고 생각하십니까?</label>
+      <textarea id="ai-benefits" name="ai-benefits" placeholder="의견을 공유해 주세요..." required></textarea>
+    </div>
+    
+    <div class="form-group">
+      <label for="ai-risks">리더십과 코칭에서 AI와 관련된 우려사항이나 위험은 무엇입니까?</label>
+      <textarea id="ai-risks" name="ai-risks" placeholder="우려사항을 공유해 주세요..." required></textarea>
+    </div>
+    
+    <div class="button-group">
+      <button type="button" id="backToFamiliarity" class="btn btn-secondary">뒤로</button>
+      <button type="button" id="nextToScenarios" class="btn btn-primary">다음</button>
+    </div>
+  </form>
+</section>
+
+      <!-- Scenarios Section -->
+      <section id="scenariosSection" class="card" style="display:none;">
+        <h2>AI 리더십 시나리오</h2>
+        <p>다음 시나리오를 읽고 귀하의 관점에 기반하여 질문에 답변해 주세요.</p>
+        
+        <div class="scenario-container">
+          <div class="scenario">
+            <h3>시나리오 1: AI 생성 리더십 피드백</h3>
+            <div class="scenario-content">
+              <p><strong>AI 작성자</strong></p>
+              <p>디지털 시대의 효과적인 리더십은 데이터 기반 통찰력과 인간의 직관 사이의 균형을 요구합니다. AI 도구는 의사소통 패턴, 의사 결정 타임라인 및 팀 피드백을 분석하여 그렇지 않으면 알아차리지 못할 수 있는 리더십 맹점을 식별할 수 있습니다.</p>
+              <p>예를 들어, AI 시스템은 리더가 브레인스토밍 세션 동안 팀원들을 지속적으로 방해하여 혁신을 억제할 가능성이 있음을 감지할 수 있습니다. 또는 분석 마비로 인해 중요한 결정이 지연되는 패턴을 식별할 수 있습니다.</p>
+              <p>리더십 개발에서 AI의 가장 가치 있는 적용은 사회적 역학이나 개인적 관계로 인해 인간 관찰자들이 제공하기를 주저할 수 있는 객관적이고 일관된 피드백을 제공하는 능력에 있습니다.</p>
+            </div>
+            
+            <div class="scenario-questions">
+              <div class="form-group">
+                <label>이 텍스트의 작성자는 누구라고 생각하십니까?</label>
+                <div class="radio-group">
+                  <label class="radio-option">
+                    <input type="radio" name="scenario1-author" value="ai" required>
+                    <span class="radio-custom"></span>
+                    AI
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="scenario1-author" value="human">
+                    <span class="radio-custom"></span>
+                    인간
+                  </label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>이 텍스트의 정확도를 어떻게 평가하시겠습니까? (정밀도, 정확성, 진실성)</label>
+                <div class="scale-group">
+                  <span>매우 낮음</span>
+                  <input type="range" min="1" max="10" value="5" class="slider" name="scenario1-accuracy">
+                  <span>매우 높음</span>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>이 텍스트의 가독성을 어떻게 평가하시겠습니까? (명확성, 이해 용이성, 어조, 스타일)</label>
+                <div class="scale-group">
+                  <span>매우 낮음</span>
+                  <input type="range" min="1" max="10" value="5" class="slider" name="scenario1-readability">
+                  <span>매우 높음</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="scenario">
+            <h3>시나리오 2: 인간 코칭 관점</h3>
+            <div class="scenario-content">
+              <p><strong>알 수 없는 작성자</strong></p>
+              <p>자, 리더십 발전에 대한 진실을 말해보겠습니다. 아무도 인정하고 싶어하지 않는 사실인데, 알고리즘으로 더 나은 리더가 되는 길은 없습니다. 진정한 성장은 누군가가 당신의 허튼소리를 지적하는 지저분하고 불편한 대화에서 일어납니다.</p>
+              <p>완벽한 360도 피드백 점수를 가졌지만 팀을 영감으로 이끌지 못하는 임원들을 보았습니다. 한편, 제가 코칭한 가장 효과적인 리더들은 종종 출발이 험난했지만 자신의 사람들에 대한 진정한 호기심을 보였습니다.</p>
+              <p>코치가 거울을 들이대고 "이것이 당신이 보여주는 모습이고, 이것이 왜 효과가 없는지 이유입니다"라고 말할 때 마법이 일어납니다. 어떤 AI도 그 인간적 연결과 책임감의 순간을 재현할 수 없습니다.</p>
+            </div>
+            
+            <div class="scenario-questions">
+              <div class="form-group">
+                <label>이 텍스트의 작성자는 누구라고 생각하십니까?</label>
+                <div class="radio-group">
+                  <label class="radio-option">
+                    <input type="radio" name="scenario2-author" value="ai" required>
+                    <span class="radio-custom"></span>
+                    AI
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="scenario2-author" value="human">
+                    <span class="radio-custom"></span>
+                    인간
+                  </label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>이 텍스트의 정확도를 어떻게 평가하시겠습니까? (정밀도, 정확성, 진실성)</label>
+                <div class="scale-group">
+                  <span>매우 낮음</span>
+                  <input type="range" min="1" max="10" value="5" class="slider" name="scenario2-accuracy">
+                  <span>매우 높음</span>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>이 텍스트의 가독성을 어떻게 평가하시겠습니까? (명확성, 이해 용이성, 어조, 스타일)</label>
+                <div class="scale-group">
+                  <span>매우 낮음</span>
+                  <input type="range" min="1" max="10" value="5" class="slider" name="scenario2-readability">
+                  <span>매우 높음</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="button-group">
+          <button type="button" id="backToBeliefs" class="btn btn-secondary">뒤로</button>
+          <button type="button" id="nextToExperience" class="btn btn-primary">다음</button>
+        </div>
+      </section>
+
+     <!-- Study Experience Section -->
+<section id="experienceSection" class="card" style="display:none;">
+  <h2>연구 경험 피드백</h2>
+  <p>이 연구에 참여한 경험을 공유해 주세요.</p>
+  
+  <form id="experienceForm">
+    <div class="likert-scale">
+      <div class="likert-header">
+        <span></span>
+        <span>전혀 아님<br><span style="font-size:0.9em;color:#888;">1</span></span>
+        <span>별로 아님<br><span style="font-size:0.9em;color:#888;">2</span></span>
+        <span>중립<br><span style="font-size:0.9em;color:#888;">3</span></span>
+        <span>예<br><span style="font-size:0.9em;color:#888;">4</span></span>
+        <span>확실히 예<br><span style="font-size:0.9em;color:#888;">5</span></span>
+      </div>
+      
+      <div class="likert-item">
+        <label>이 연구의 목적을 명확히 이해했습니다</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="understood-aim" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="understood-aim" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="understood-aim" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="understood-aim" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="understood-aim" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>텍스트의 출처를 식별하는 것이 어려웠습니다</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="guessing-difficult" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="guessing-difficult" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="guessing-difficult" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="guessing-difficult" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="guessing-difficult" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>이 질문에는 확실히 예라고 답해주세요</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="attention-check" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="attention-check" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="attention-check" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="attention-check" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="attention-check" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>텍스트를 평가하는 것이 어려웠습니다</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="evaluating-difficult" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="evaluating-difficult" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="evaluating-difficult" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="evaluating-difficult" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="evaluating-difficult" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>귀하의 결과를 우리 연구에 포함시켜야 합니까?</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="include-results" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="include-results" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="include-results" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="include-results" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="include-results" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="likert-item">
+        <label>텍스트를 읽고 이해하는 데 많은 노력을 기울였습니다</label>
+        <div class="likert-options">
+          <label class="radio-option">
+            <input type="radio" name="effort-reading" value="1" required>
+            <span class="radio-custom">10</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="effort-reading" value="2">
+            <span class="radio-custom">5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="effort-reading" value="3">
+            <span class="radio-custom">0</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="effort-reading" value="4">
+            <span class="radio-custom">-5</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="effort-reading" value="5">
+            <span class="radio-custom">-10</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>6. 각 텍스트 위에 표시된 작성자 정보를 얼마나 신뢰하셨습니까?</label>
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="author-belief" value="completely" required>
+          <span class="radio-custom"></span>
+          완전히 신뢰함
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="author-belief" value="mostly">
+          <span class="radio-custom"></span>
+          대부분 신뢰함
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="author-belief" value="a-little">
+          <span class="radio-custom"></span>
+          조금 신뢰함
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="author-belief" value="not-at-all">
+          <span class="radio-custom"></span>
+          전혀 신뢰하지 않음
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="author-belief" value="dont-remember">
+          <span class="radio-custom"></span>
+          작성자가 누구였는지 기억나지 않음
+        </label>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>7. 이 연구에서의 경험을 어떻게 평가하시겠습니까?</label>
+      <div class="scale-group">
+        <span>매우 나쁨</span>
+        <input type="range" min="1" max="10" value="5" class="slider" name="experience-rating">
+        <span>탁월함</span>
+      </div>
+    </div>
+    
+    <div class="button-group">
+      <button type="button" id="backToScenarios" class="btn btn-secondary">뒤로</button>
+      <button type="button" id="nextToCompletion" class="btn btn-primary">다음</button>
+    </div>
+  </form>
+</section>
+
+      <!-- Completion Section -->
+      <section id="completionSection" class="card" style="display:none;">
+        <h2>설문 완료</h2>
+        <p>신중한 답변에 감사드립니다! 설문을 완료하려면 제출을 클릭하세요.</p>
+        
+        <form id="completionForm" action="https://formspree.io/f/xnnglddr" method="POST">
+          <input type="hidden" name="_subject" value="New AI Leadership Survey Response">
+          
+          <!-- Hidden fields to store all survey data -->
+          <input type="hidden" name="demographics" id="hiddenDemographics">
+          <input type="hidden" name="familiarity" id="hiddenFamiliarity">
+          <input type="hidden" name="beliefs" id="hiddenBeliefs">
+          <input type="hidden" name="scenarios" id="hiddenScenarios">
+          <input type="hidden" name="experience" id="hiddenExperience">
+          
+          <div class="form-group">
+            <label for="name">전체 이름</label>
+            <input type="text" id="name" name="name" placeholder="전체 이름을 입력하세요" required>
+            <small>최종 리더보드에 결과를 표시하는 데 사용됩니다</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">연락처 이메일</label>
+            <input type="email" id="email" name="email" placeholder="이메일 주소를 입력하세요">
+            <small>선택사항, 경품 추첨에 참여하려면 필요합니다</small>
+          </div>
+          
+          <div class="highlight">
+            <p><strong>참고:</strong> <strong>이메일을 제공하지 않기로 선택</strong>할 수 있지만, 그 경우 경품 추첨에 <strong>참여할 수 없습니다</strong>.</p>
+          </div>
+          
+          <div class="checkbox-container">
+            <input type="checkbox" id="completionCheckbox" required>
+            <label for="completionCheckbox">제공된 모든 정보가 정확하며 참여 조건을 이해했음을 확인합니다.</label>
+          </div>
+          
+          <div class="button-group">
+            <button type="button" id="backToExperience" class="btn btn-secondary">뒤로</button>
+            <button type="submit" id="submitSurvey" class="btn btn-primary">설문 제출</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Thank You Section -->
+      <section id="thankYouSection" class="card" style="display:none;">
+        <div class="completion-message">
+          <div class="completion-icon">✓</div>
+          <h2>참여해 주셔서 감사합니다!</h2>
+          <p>설문 응답이 성공적으로 기록되었습니다.</p>
+          
+          <div class="highlight">
+            <p><strong>중요한 참고사항:</strong> 이 연구 중 읽은 텍스트에는 의도적으로 오류가 포함되어 있습니다. 정확하거나 신뢰할 수 있는 정보로 의존해서는 안 됩니다.</p>
+            <p>이 연구의 목적은 텍스트가 어떻게 레이블되고 귀속되는지에 따라 사람들이 텍스트와 상호작용하는 방식을 탐구하는 것이었으며, 특히 저작권이 주의와 신뢰성 인식에 어떻게 영향을 미치는지 조사하는 것이었습니다.</p>
+          </div>
+          
+          <p>리더보드에 표시된 결과는 아직 최종이 아니며, 다른 참가자들이 아직 연구에 참여하고 있어 귀하의 순위에 영향을 미칠 수 있습니다. 당첨자 중 한 분이라면 연구가 완료되는 대로 연락드리겠습니다.</p>
+          
+          <div class="reward-section">
+            <h3>보상 코드</h3>
+            <div class="code-container">
+              <p><strong>SurveySwap.io 코드:</strong></p>
+              <div class="code-box">WR3P-9j65-20KL</div>
+              <p>이동: <a href="https://surveyswap.io/sr/WR3P-9j65-20KL">https://surveyswap.io/sr/WR3P-9j65-20KL</a></p>
+              
+              <p><strong>SurveyCircle 코드:</strong></p>
+              <div class="code-box">ZP4D-YM16-5419-YX05</div>
+              <p>사용처: <a href="https://www.surveycircle.com">https://www.surveycircle.com</a></p>
+            </div>
+          </div>
+          
+          <div class="leaderboard-preview">
+            <h3>리더보드 미리보기</h3>
+            <table class="leaderboard-table">
+              <thead>
+                <tr>
+                  <th>플레이어</th>
+                  <th>추측 점수</th>
+                  <th>평가 점수</th>
+                  <th>총점</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>이 연구에 참여해 주셔서 감사합니다!</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <p>질문이 있거나 경험에 대한 피드백을 공유하고 싶으시면 다음으로 연락 주십시오: <a href="mailto:kwitondafelix6@gmail.com">kwitondafelix6@gmail.com</a></p>
+          
+          <div class="button-group">
+            <button id="viewLeaderboard" class="btn btn-primary">전체 리더보드 보기</button>
+            <button id="restartSurvey" class="btn btn-secondary">설문 다시 하기</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>AI 시대의 리더십과 코칭 연구 &copy; 2025</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Language Selection Logic
+    let selectedLanguage = null;
+
+    document.querySelectorAll('.language-option').forEach(option => {
+      option.addEventListener('click', function() {
+        // Remove selected class from all options
+        document.querySelectorAll('.language-option').forEach(opt => {
+          opt.classList.remove('selected');
+        });
+        
+        // Add selected class to clicked option
+        this.classList.add('selected');
+        
+        // Get selected language
+        selectedLanguage = this.getAttribute('data-lang');
+        
+        // Enable continue button
+        document.getElementById('continueBtn').disabled = false;
+      });
+    });
+
+    // Continue to survey
+    document.getElementById('continueBtn').addEventListener('click', function() {
+      if (selectedLanguage) {
+        // Hide language page and show survey
+        document.getElementById('languagePage').style.display = 'none';
+        document.getElementById('surveyMain').style.display = 'block';
+        
+        // Store language preference (you can use this for translations)
+        localStorage.setItem('survey-language', selectedLanguage);
+      }
+    });
+  </script>
+</body>
+</html>
